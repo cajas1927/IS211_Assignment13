@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <h2>Add Student</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message[1] }}">{{ message[0] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="post" action="{{ url_for('add_student') }}">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" required>
+        <br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" required>
+        <br>
+        <input type="submit" value="Add Student">
+    </form>
+</body>
+</html>

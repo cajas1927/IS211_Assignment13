@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Results</title>
+</head>
+<body>
+    <h2>{{ student.first_name }} {{ student.last_name }} - Quiz Results</h2>
+    {% if results %}
+        <table border="1">
+            <tr>
+                <th>Quiz ID</th>
+                <th>Score</th>
+            </tr>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result['quiz_id'] }}</td>
+                    <td>{{ result['score'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p
